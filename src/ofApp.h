@@ -18,6 +18,9 @@ class ofApp : public ofBaseApp{
     //Gui controls
     ofxPanel gui;
     ofParameter<float>thresholdControl;
+    ofParameter<int>minTamanB;
+    ofParameter<int>numB;
+    
     
     
     //--------------------------------
@@ -26,11 +29,16 @@ class ofApp : public ofBaseApp{
     //---------------------------------
     
     ofVideoGrabber cam;
-    ofImage rgb, grayscale, background, difference;
+   // ofImage rgb, grayscale, background, difference;
+    ofxCvColorImage rgb;
     
-    void getRGBpixels();
-    void convertToGrayScale();
-    void backgroundLearning();
-    void getdiffertence();
+    ofxCvGrayscaleImage grisInit;
+    ofxCvGrayscaleImage grisBg;
+    ofxCvGrayscaleImage grisDiff;
+    
+    ofxCvContourFinder contorno;
+    int threshold;
+    bool bLearnBck;
+
     
 };
